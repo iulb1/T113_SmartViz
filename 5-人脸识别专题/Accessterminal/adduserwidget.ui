@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AddUserWidget</class>
+ <widget class="QWidget" name="AddUserWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>451</width>
+    <height>281</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>451</width>
+    <height>281</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>451</width>
+    <height>281</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:transpreant;</string>
+  </property>
+  <widget class="QWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>451</width>
+     <height>281</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>451</width>
+     <height>281</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>451</width>
+     <height>281</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(0, 0, 0,180);</string>
+   </property>
+   <widget class="QPushButton" name="btnadduserface">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>90</y>
+      <width>111</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton { 
+
+border-image: url(:/pics/face256.png); 
+border:none;
+outline:none;
+background-color:transparent;
+}
+QPushButton:pressed { border-image: url(:/pics/face256.png); }</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

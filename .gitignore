@@ -1,0 +1,55 @@
+# 依赖库
+opencv-4.5.4
+opencv_contrib-4.5.4
+
+# 压缩包
+*.tar
+*.zip
+*.gz
+
+# 视频文件
+*.mp4
+*.avi
+*.mkv
+
+# PDF文件（文档用markdown格式）
+*.pdf
+
+# 模型文件
+*.onnx
+*.onnx.*
+
+# QT生成的用户文件
+*.pro.user
+*.pro.user.*
+
+# 编译输出
+a.out
+*.o
+*.a
+*.so
+*.dll
+*.exe
+
+# 日志文件
+*.log
+
+# 临时文件
+*.tmp
+*.bak
+*~
+*.swp
+
+# IDE配置文件
+.vscode/
+.idea/
+*.autosave
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 编译文件夹
+build/
+debug/
+release/

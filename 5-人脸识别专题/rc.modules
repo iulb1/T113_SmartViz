@@ -1,0 +1,48 @@
+#!/bin/sh
+echo "------run rc.modules file-----"
+
+cp /opt/ip /sbin
+
+#export boot_partition=$(fw_printenv -n boot_partition 2>/dev/null)
+# if [ x${boot_partition} == xboot ];then 
+#	/sbin/insmod /lib/modules/5.4.61/usb-storage.ko
+#	/sbin/insmod /lib/modules/5.4.61/sunxi_gpadc.ko
+	/sbin/insmod /lib/modules/5.4.61/gt9xxnew_ts.ko
+	echo 0x07090160 0x083F10F7 > /sys/class/sunxi_dump/write
+#	/sbin/insmod /lib/modules/5.4.61/8723ds.ko
+#	/sbin/insmod /lib/modules/5.4.61/8189fs.ko
+	/sbin/insmod /lib/modules/5.4.61/r8188eu.ko
+	ifconfig wlan0 up
+#	sleep 1
+#	wpa_supplicant -D wext -c /etc/wpa_supplicant.conf -i wlan0 &
+#	udhcpc -i wlan0
+#	wpa_supplicant  -Dnl80211 -iwlan0 -c /etc/wifi/wpa_supplicant.conf -B
+
+amixer -D hw:audiocodec cset name='Headphone Switch' 1 && \
+amixer -D hw:audiocodec cset name='Headphone volume' 25
+
+ifconfig eth0 up
+
+ip link set can0 up type can bitrate 500000
+
+
+
+
+# led flash
+cd /opt
+./led_flash &
+cd /
+
+# run lvgl demo
+
+# fi
+
+
+wpa_supplicant -D wext -c /etc/wpa_supplicant.conf -i wlan0 &
+udhcpc -i wlan0 &
+
+amixer -D hw:audiocodec cset name='MIC3 Input Select' 0 && \
+amixer -D hw:audiocodec cset name='ADC3 Input MIC3 Boost Switch' 1 && \
+amixer -D hw:audiocodec cset name='MIC3 gain volume' 30
+
+/root/time.sh & 

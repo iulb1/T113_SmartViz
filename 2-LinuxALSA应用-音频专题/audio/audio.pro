@@ -1,0 +1,49 @@
+QT       += core gui
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+CONFIG += c++11
+
+# The following define makes your compiler emit warnings if you use
+# any Qt feature that has been marked deprecated (the exact warnings
+# depend on your compiler). Please consult the documentation of the
+# deprecated API in order to know how to port your code away from it.
+DEFINES += QT_DEPRECATED_WARNINGS
+
+# You can also make your code fail to compile if it uses deprecated APIs.
+# In order to do so, uncomment the following line.
+# You can also select to disable deprecated APIs only up to a certain version of Qt.
+#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+
+SOURCES += \
+    main.cpp \
+    widget.cpp \
+    recordthread.cpp \
+    playthread.cpp \
+    waveformwidget.cpp
+
+HEADERS += \
+    widget.h \
+    recordthread.h \
+    playthread.h \
+    waveformwidget.h
+
+FORMS += \
+    widget.ui
+
+# ALSA库配置 - 交叉编译时使用
+# 根据你的交叉编译环境，取消注释并修改以下路径
+INCLUDEPATH += /home/zhiwan/t113/Tina-Linux/out/t113-zhiwan_v1/staging_dir/target/usr/include/
+LIBS += -L/home/zhiwan/t113/Tina-Linux/out/t113-zhiwan_v1/staging_dir/target/usr/lib/ -lasound
+
+# 本地开发时，如果系统已安装ALSA，可以使用以下配置
+# 交叉编译时请注释掉，使用上面的配置
+#unix:!android {
+#    CONFIG += link_pkgconfig
+#    PKGCONFIG += alsa
+#}
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target

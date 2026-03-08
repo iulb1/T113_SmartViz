@@ -1,0 +1,2 @@
+Hello, strace!
+This is a test for file operations.
